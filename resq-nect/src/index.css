@@ -1,0 +1,114 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 224 71.4% 4.1%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+
+    --primary: 220 91% 54%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 210 20% 96.1%;
+    --secondary-foreground: 220 91% 54%;
+
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220 91% 54%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 224 71.4% 4.1%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 220 91% 54%;
+
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 216 12.2% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 dark:bg-gray-900/60 backdrop-blur-lg border border-white/20 dark:border-gray-800/40 shadow-glass;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .icon-glow {
+    filter: drop-shadow(0 0 8px var(--primary));
+  }
+  
+  .emergency-btn {
+    @apply relative flex items-center justify-center h-20 w-20 rounded-full bg-emergency hover:bg-emergency-hover transition-all duration-300 shadow-lg overflow-hidden;
+  }
+  
+  .emergency-btn::before {
+    content: '';
+    @apply absolute inset-0 bg-emergency opacity-0 rounded-full scale-90 transition-all duration-300;
+  }
+  
+  .emergency-btn:hover::before {
+    @apply opacity-30 scale-110;
+  }
+  
+  .emergency-pulse {
+    @apply absolute inset-0 bg-emergency rounded-full animate-pulse-emergency;
+    animation: pulse-emergency 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
